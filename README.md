@@ -8,7 +8,8 @@ python3 evalm_vocab_selection.py [model name] [training file path] [minimum word
 
 Example:
 
-python3 evalm_vocab_selection.py bert-base-multilingual-cased ./data/iitp_product_review_data/hi-train.csv 1 ./vocab_files/iitp_product_review_vocab_files/vocab_add_2000_evalm.txt 2000 ./vocab_files/iitp_product_review_vocab_files/iitp_word_trans.txt 25
+python3 evalm_vocab_selection.py bert-base-multilingual-cased ./data/IITP_product_reviews/hi-train.csv 1 ./vocab_files/iitp_product_review_vocab_files/vocab_add_2000_evalm.txt 2000 ./vocab_files/iitp_product_review_vocab_files/iitp_word_trans.txt 25
+
 
 #To fine-tune model with generated vocabulary use the below command:
 
@@ -17,7 +18,7 @@ python3 evalm_finetune.py [GPU] [train_file_path] [validation_file_path] [test_f
 
 Example:
 
-python3 evalm_finetune.py cuda:0 ./data/iitp_product_review_data/hi-train.csv ./data/iitp_product_review_data/hi-valid.csv ./data/iitp_product_review_data/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5 ./vocab_files/iitp_product_review_vocab_files/vocab_add_2000_evalm.txt iitp_vocab_augment.tmp 0.5
+CUBLAS_WORKSPACE_CONFIG=:4096:8 python3 evalm_finetune.py cuda:0 ./data/IITP_product_reviews/hi-train.csv ./data/IITP_product_reviews/hi-valid.csv ./data/IITP_product_reviews/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5 ./vocab_files/iitp_product_review_vocab_files/vocab_add_2000_evalm.txt iitp_vocab_augment.tmp 0.5
 
 
 #To fine-tune model without vocabulary augmentation use the below command:
@@ -27,7 +28,7 @@ python3 normal_classification_finetune.py [GPU] [train_file_path] [validation_fi
 
 Example:
 
-python3 normal_classification_finetune.py cuda:0 ./data/iitp_product_review_data/hi-train.csv ./data/iitp_product_review_data/hi-valid.csv ./data/iitp_product_review_data/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5 
+CUBLAS_WORKSPACE_CONFIG=:4096:8 python3 normal_classification_finetune.py cuda:0 ./data/IITP_product_reviews/hi-train.csv ./data/IITP_product_reviews/hi-valid.csv ./data/IITP_product_reviews/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5
 
 
 #To fine-tune model without vocabulary augmentation & using flota use the below command:
@@ -37,4 +38,4 @@ python3 flota_finetune.py [GPU] [train_file_path] [validation_file_path] [test_f
 
 Example:
 
-python3 flota_finetune.py cuda:0 ./data/iitp_product_review_data/hi-train.csv ./data/iitp_product_review_data/hi-valid.csv ./data/iitp_product_review_data/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5
+CUBLAS_WORKSPACE_CONFIG=:4096:8 python3 flota_finetune.py cuda:0 ./data/IITP_product_reviews/hi-train.csv ./data/IITP_product_reviews/hi-valid.csv ./data/IITP_product_reviews/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5
