@@ -18,3 +18,23 @@ python3 evalm_finetune.py [GPU] [train_file_path] [validation_file_path] [test_f
 Example:
 
 python3 evalm_finetune.py cuda:0 ./data/iitp_product_review_data/hi-train.csv ./data/iitp_product_review_data/hi-valid.csv ./data/iitp_product_review_data/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5 ./vocab_files/iitp_product_review_vocab_files/vocab_add_2000_evalm.txt iitp_vocab_augment.tmp 0.5
+
+
+#To fine-tune model without vocabulary augmentation use the below command:
+
+python3 normal_classification_finetune.py [GPU] [train_file_path] [validation_file_path] [test_file_path] [saved_model_weight] [saved_model_prediction] [Seed] [model_name] [patience_count for early stopping]
+
+
+Example:
+
+python3 normal_classification_finetune.py cuda:0 ./data/iitp_product_review_data/hi-train.csv ./data/iitp_product_review_data/hi-valid.csv ./data/iitp_product_review_data/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5 
+
+
+#To fine-tune model without vocabulary augmentation & using flota use the below command:
+
+python3 flota_finetune.py [GPU] [train_file_path] [validation_file_path] [test_file_path] [saved_model_weight] [saved_model_prediction] [Seed] [model_name] [patience_count for early stopping]
+
+
+Example:
+
+python3 flota_finetune.py cuda:0 ./data/iitp_product_review_data/hi-train.csv ./data/iitp_product_review_data/hi-valid.csv ./data/iitp_product_review_data/hi-test.csv iitp_evalm_ft.pt iitp_evalm_predictions.txt 1 bert-base-multilingual-cased 5
