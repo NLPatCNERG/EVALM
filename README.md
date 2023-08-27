@@ -2,6 +2,7 @@
 Entropy-guided Vocabulary Augmentation of Multilingual Language Models for Low-resource Tasks
 
 #To generate vocabulary for augmentation of desired size use the below command:
+
 python3 evalm_vocab_selection.py [model name] [training file path] [minimum word frequency to consider] [generated vocab file] [Maximum vocab size to augment] [training file word translation dictionary] [entropy reduction percentage threshold]
 
 Example:
