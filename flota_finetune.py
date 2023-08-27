@@ -137,7 +137,7 @@ def train(model, train_data, val_data, learning_rate, epochs):
 
     if use_cuda:
             model = model.to(device)
-            criterion = criterion.to(device)
+            #criterion = criterion.to(device)
     model.zero_grad()        
     max_acc = 0
     patience_count = 0
